@@ -20,7 +20,6 @@ env:
   global:
     - R_BUILD_ARGS="--no-build-vignettes --no-manual"
     - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
-    - MONGODB_URL=\"mongo://travis:test@localhost:27017\
     
 before_install:
   - sudo apt-get install python-pip
