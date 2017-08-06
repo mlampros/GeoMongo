@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# helper function to skip tests if we don't have the 'foo' module\n# https://github.com/rstudio/reticulate\n\n\n\n# MODULE is of type character vector [ can take one or more MODULES as input ]\n\n\nskip_test_if_no_modules <- function(MODULES) {\n\n  modules_exist <- sapply(MODULES, function(x) reticulate::py_module_available(x))\n\n  if (!all(modules_exist)) {\n\n    idx = which(modules_exist != T)\n\n    if (length(idx) > 1) {\n\n      MESSAGE = paste(paste(MODULES[idx], collapse = \" and \"), \"are not available for testthat-testing\", collapse = \" \")}\n\n    else {\n\n      MESSAGE = paste(MODULES[idx], \"is not available for testthat-testing\", collapse = \" \")\n    }\n\n    testthat::skip(MESSAGE)\n  }\n}\n",
+    "created" : 1501596220384.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2205105393",
+    "id" : "28C0F098",
+    "lastKnownWriteTime" : 1501596292,
+    "last_content_update" : 1501596292775,
+    "path" : "~/ADD_GITHUB/GeoMongo/tests/testthat/helper-function_for_tests.R",
+    "project_path" : "tests/testthat/helper-function_for_tests.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

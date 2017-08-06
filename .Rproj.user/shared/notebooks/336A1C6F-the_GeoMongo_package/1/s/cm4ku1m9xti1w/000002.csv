@@ -1,0 +1,12 @@
+"0","init$geoInsert(DATA = input_LIST,              # input data
+               
+               TYPE_DATA = 'dict_many',        # convert list to multiple dictionaries
+               
+               COLLECTION = init_col,          # specify the relevant collection
+               
+               GEOMETRY_NAME = ""location"")     # the 'geometry name' of each character string
+"
+"1","[1]"
+"1"," ""location_2dsphere"""
+"1","
+"

@@ -1,0 +1,10 @@
+{
+  "name" : "Whistler",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [
+      -122.95,
+      50.12
+      ]
+  }
+}

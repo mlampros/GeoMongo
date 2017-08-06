@@ -1,0 +1,10 @@
+{
+  "name" : "Aspen",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [
+      -106.82,
+      39.18
+      ]
+  }
+}

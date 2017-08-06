@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n\nlibrary(GeoMongo)\n\ninit = geomongo$new()\n\ngetter_client = init$getClient()\n\ngetter_client$database_names()\n\ninit_db = getter_client$get_database(\"tmp_db\") \n\ninit_db$collection_names()\n\ninit_PYM_ret = init_db$get_collection(\"PYM_ret\")\n\ninit_PYM_ret$find_one()\n\nquery_geonear = list('$geoNear' = list(near = list(type = \"Point\", coordinates = c(-122.5, 37.1)), distanceField = \"distance\", maxDistance = 900 * 1609.34,\n                                       \n                                       distanceMultiplier = 1 / 1609.34, spherical = TRUE))\n\n\nfunc_quer_geonear = init$geoQuery(QUERY = query_geonear, METHOD = \"aggregate\", COLLECTION = init_PYM_ret, DATABASE = NULL, GEOMETRY_NAME = \"location\", TO_LIST = F)\nfunc_quer_geonear\n\ndtbl = data.table::rbindlist(func_quer_geonear, use.names = TRUE)\n\n\n\n\nCOLLECTIONS = reticulate::import(\"collections\")\n\n\n\nJSON = reticulate::import(\"json\")\n\n\nJSON_STR = geojsonR::Dump_From_GeoJson('/home/lampros/MongoReticulate/GEOJSON/geo1.geojson')\n\nmy_ordered_dict = JSON$loads(JSON_STR, object_pairs_hook = COLLECTIONS$OrderedDict)\n\nclass(my_ordered_dict)\n\nNEW_COL = init_db$create_collection(\"NEW_COLLECTION1\")\n\nNEW_COL$insert_one(my_ordered_dict)\n\nNEW_COL$find_one()\n\n",
+    "created" : 1501172672288.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2082149869",
+    "id" : "1CD36DC9",
+    "lastKnownWriteTime" : 1501170829,
+    "last_content_update" : 1501175906663,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

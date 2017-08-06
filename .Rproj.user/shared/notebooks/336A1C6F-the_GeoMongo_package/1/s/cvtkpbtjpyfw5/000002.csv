@@ -1,0 +1,19 @@
+"0","init$geoInsert(DATA = bson_lst,                # insert data
+             
+              TYPE_DATA = 'dict_one',          # single list as input
+             
+              COLLECTION = bson_col,           # specify the relevant collection
+             
+              GEOMETRY_NAME = ""location"",      # give the 'geometry name' of each geo-object
+              
+              read_method = ""geojsonR"")
+"
+"2","Error in py_call_impl(callable, dots$args, dots$keywords) : 
+  InvalidDocument: key '$oid' must not start with '$'
+
+Detailed traceback: 
+  File ""/usr/local/lib/python2.7/dist-packages/pymongo/collection.py"", line 467, in insert_one
+    return InsertOneResult(self._insert(sock_info, document),
+  File ""/usr/local/lib/python2.7/dist-packages/pymongo/collection.py"", line 430, in _insert
+    gen(), check_keys, self.codec_options, sock_info)
+"

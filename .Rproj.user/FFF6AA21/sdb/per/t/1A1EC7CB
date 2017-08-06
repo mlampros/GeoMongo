@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n#------------------------\n# Load the python-modules\n#------------------------\n\n\nMONGO <- NULL; BSON <- NULL; BUILTINS <- NULL; SCHEMA <- NULL; #MODULES <- rep(F, 3);\n\n\n.onLoad <- function(libname, pkgname) {\n\n  # load 'pymongo'\n  #---------------\n\n  MONGO <<- reticulate::import(\"pymongo\", delay_load = list(\n\n    on_load = function() { },\n\n    on_error = function(e) { stop(\"the 'pymongo' module is not available\", call. = F) }\n  ))\n\n  # load 'bson'\n  #------------\n\n  BSON <<- reticulate::import(\"bson.json_util\", delay_load = list(\n\n    on_load = function() { },\n\n    on_error = function(e) { stop(\"the 'bson.json_util' module is not available\", call. = F) }\n  ))\n\n  # load 'jsonschema'\n  #------------------\n\n  SCHEMA <<- reticulate::import('jsonschema', delay_load = list(\n\n    on_load = function() { },\n\n    on_error = function(e) { stop(\"the 'jsonschema' module is not available\", call. = F) }\n  ))\n\n  BUILTINS <<- reticulate::import_builtins(convert = FALSE)\n}\n\n\n\n\n# .onLoad <- function(libname, pkgname) {\n#\n#   if (reticulate::py_available(initialize = TRUE) && reticulate::py_module_available(\"pymongo\")\n#\n#       && reticulate::py_module_available(\"bson.json_util\") && reticulate::py_module_available(\"jsonschema\")) {\n#\n#     MONGO <<- reticulate::import(\"pymongo\", delay_load = TRUE)                # delay load 'foo' module ( will only be loaded when accessed via $ )\n#\n#     BSON <<- reticulate::import(\"bson.json_util\", delay_load = TRUE)\n#\n#     BUILTINS <<- reticulate::import_builtins(convert = FALSE)\n#\n#     SCHEMA <<- reticulate::import('jsonschema', delay_load = TRUE)\n#   }\n# }\n",
+    "created" : 1501146491856.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "69693821",
+    "id" : "1A1EC7CB",
+    "lastKnownWriteTime" : 1501600325,
+    "last_content_update" : 1501600325490,
+    "path" : "~/ADD_GITHUB/GeoMongo/R/package.R",
+    "project_path" : "R/package.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,12 @@
+"0","init$geoInsert(DATA = doc_FILES,               # insert data
+               
+               TYPE_DATA = 'dict_many',        # character vector of strings as input
+               
+               COLLECTION = places_col,        # specify the relevant collection
+               
+               GEOMETRY_NAME = ""location"")     # give the 'geometry name' of each geo-object
+"
+"1","[1]"
+"1"," ""location_2dsphere"""
+"1","
+"

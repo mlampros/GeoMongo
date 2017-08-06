@@ -1,0 +1,10 @@
+{
+  "name" : "Squaw Valley",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [
+      -120.24,
+      39.21
+      ]
+  }
+}

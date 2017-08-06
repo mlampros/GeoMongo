@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#===========================================================================================\n\n#-------------------------------------------------------------------------\n# connect to relevant collections\n\nlibrary(GeoMongo)\n\nPATH = paste0(getwd(), path.expand(\"/geojson_tests/\"))\n\ninit = geomongo$new(\"mongodb://lampros:aws_geo_123@54.76.20.13/geo_db\")\n\ninit_client = init$getClient()\n\ninit_db = init_client$get_database(\"geo_db\")\n\ninit_col = init_db$create_collection(\"geomongo_class\")\n\n# inserting data [ run only in first time]\n# init$geoInsert(DATA = PATH, TYPE_DATA = 'folder', COLLECTION = init_col, GEOMETRY_NAME = 'location', read_method = 'geojsonR')\n\n#--------------------------------------------------------------------------\n\ncontext('test GeoMongo package')\n\n\ntestthat::test_that(\"the data is queried error free using 'aggregate\", {\n\n  query_geonear = list('$geoNear' = list(near = list(type = \"Point\", coordinates = c(-122.5, 37.1)),\n\n                                         distanceField = \"distance\", maxDistance = 900 * 1609.34,\n\n                                         distanceMultiplier = 1 / 1609.34, spherical = TRUE))\n\n\n  res = init$geoQuery(QUERY = query_geonear, METHOD = \"aggregate\", COLLECTION = init_col,\n\n                      DATABASE = NULL, GEOMETRY_NAME = \"location\", TO_LIST = FALSE)\n\n  testthat::expect_true( sum(class(res) %in% c('data.table', 'data.frame')) == 2 && nrow(res) == 3 )\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#===========================================================================================\n",
+    "created" : 1501596039093.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1142020917",
+    "id" : "3026A26C",
+    "lastKnownWriteTime" : 1501686125,
+    "last_content_update" : 1501686125442,
+    "path" : "~/ADD_GITHUB/GeoMongo/tests/testthat/test_package.R",
+    "project_path" : "tests/testthat/test_package.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

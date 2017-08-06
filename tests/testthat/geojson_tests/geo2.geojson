@@ -1,0 +1,10 @@
+{
+  "name" : "Mammoth Lakes",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [
+      -118.9,
+      37.61
+      ]
+  }
+}

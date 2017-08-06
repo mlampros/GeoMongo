@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\nimp = reticulate::import('urllib.request')\n\nopen_json = imp$urlopen(\"https://api.github.com/repos/mlampros/OpenImageR/issues?state=all\")\n\nread_json = open_json$read()\n\nimp_rapid = reticulate::import(\"rapidjson\")               # http://python-rapidjson.readthedocs.io/en/latest/quickstart.html#basic-examples , https://github.com/python-rapidjson/python-rapidjson\n\nread_rapid_LOADS = imp_rapid$loads(read_json$decode())\n\nread_rapid_DUMPS = imp_rapid$dumps(read_json$decode())\n\n\n\n##########################################################################################################################################################\n\npy_builtins = reticulate::import_builtins(convert = TRUE)\n\nimp_json = reticulate::import(\"json\")\n\nimp_rapid = reticulate::import(\"rapidjson\")\n\n\nfunc_json = function(PATH = \"/home/lampros/MongoReticulate/GEOJSON/geo1.geojson\") {\n  \n  con_open = py_builtins$open(PATH)\n  \n  load_json = imp_json$load(con_open)\n  \n  return(load_json)\n}\n\n\nfunc_json()\n\ngeojsonR::shiny_from_JSON(\"/home/lampros/MongoReticulate/GEOJSON/geo1.geojson\")\n\n# read from FILE\n\nmicrobenchmark::microbenchmark(jsonlite::read_json(\"/home/lampros/Downloads/california.geojson\", simplifyVector = F), \n                               \n                               jsonlite::read_json(\"/home/lampros/Downloads/california.geojson\", simplifyVector = T),\n                               \n                               geojsonR::shiny_from_JSON(\"/home/lampros/Downloads/california.geojson\"),\n                               \n                               geojsonR::FROM_GeoJson(\"/home/lampros/Downloads/california.geojson\"), times = 100)\n\n# read from WEB\n\nmicrobenchmark::microbenchmark(jsonlite::read_json(\"https://raw.githubusercontent.com/mlampros/DataSets/master/california.geojson\", simplifyVector = F),\n                               \n                               geojsonR::FROM_GeoJson(\"https://raw.githubusercontent.com/mlampros/DataSets/master/california.geojson\"), times = 50)\n",
+    "created" : 1501177011276.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "232056705",
+    "id" : "86C99404",
+    "lastKnownWriteTime" : 1500639022,
+    "last_content_update" : 1500639022,
+    "path" : "~/MongoReticulate/read_json_from_web_loads_rapidjson_python.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
