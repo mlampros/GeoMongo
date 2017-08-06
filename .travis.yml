@@ -26,7 +26,6 @@ before_install:
   - sudo pip install --upgrade pip
   - sudo python -m pip install --upgrade pymongo
   - sudo pip install jsonschema
-  - sudo pip install -U bson
   - sudo apt-get install r-base-dev
   - tlmgr install index
   - sudo apt-get update
