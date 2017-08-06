@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n\n## GeoMongo\n<br>\n\nThe **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb.com/python/current/#) Python library to initialize, insert and query GeoJson data. Furthermore, it allows the user to validate GeoJson objects and to use the console for [*MongoDB*](https://www.mongodb.com/) (bulk) commands. The [*reticulate*](https://github.com/rstudio/reticulate) package provides the R interface to Python modules, classes and functions. More details on the functionality of GeoMongo can be found in the package Vignette.\n\n\n<br>\n\n### **System Requirements**\n\n<br>\n\n* [MongoDB (>= 3.4.0)](https://docs.mongodb.com/manual/installation/)\n\n* Python (>= 2.7)\n\n\n<br>\n\n### **Installation of the GeoMongo package**\n\n<br>\n\nTo install the package from CRAN use, \n\n```R\n\ninstall.packages('GeoMongo')\n\n```\n<br>\n\nand to download the latest version from Github use the *install_github* function of the devtools package,\n<br><br>\n\n```R\n\ndevtools::install_github(repo = 'mlampros/GeoMongo')\n\n```\n<br>\nUse the following link to report bugs/issues,\n<br><br>\n\n[https://github.com/mlampros/GeoMongo/issues](https://github.com/mlampros/GeoMongo/issues)\n\n<br>\n",
+    "created" : 1502038418829.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1955968294",
+    "id" : "3D89F61E",
+    "lastKnownWriteTime" : 1502038425,
+    "last_content_update" : 1502038425924,
+    "path" : "~/Desktop/kaggle_gpu/add_GITHUB/GeoMongo/README.md",
+    "project_path" : "README.md",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}
