@@ -23,6 +23,7 @@ install:
   - ps: Bootstrap
   - python -m pip install -U pip
   - python -m pip install --upgrade pymongo
+  - python -m pip install jsonschema
 
 
 cache:
