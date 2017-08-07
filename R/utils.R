@@ -173,7 +173,11 @@ geomongo <- R6::R6Class("geomongo",
                             if (!inherits(GEOMETRY_NAME, "character")) { stop("the 'GEOMETRY_NAME' parameter should be of type character", call. = F) }
                             if (TYPE_DATA %in% c("folder", "file")) {
                               if (!inherits(DATA, "character")) stop("In case that the TYPE_DATA parameter is either a 'folder' or a 'file', then the DATA parameter should be a valid path to a file", call. = F)
-                              if (!file.exists(DATA)) stop("the path to the DATA parameter does not exist", call. = F)
+                              if (TYPE_DATA == "file") {
+                                if (!file.exists(DATA)) stop("the path to the 'file' parameter does not exist", call. = F)}
+                              if (TYPE_DATA == "folder") {
+                                if (!dir.exists(DATA)) stop("the path to the 'folder' parameter does not exist", call. = F)
+                              }
                             }
 
                             private$copy_collection = COLLECTION
@@ -539,7 +543,15 @@ mongodb_console = function(Argument = NULL) {
 
   if (!inherits(Argument, "character")) { stop("the 'Argument' parameter should be of type character", call. = F) }
 
-  system(Argument)
+  if (.Platform$OS.type == "unix") {
+
+    system(Argument)
+  }
+
+  if (.Platform$OS.type == "windows") {
+
+    shell(Argument)
+  }
 
   invisible()
 }

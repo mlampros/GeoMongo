@@ -9,31 +9,44 @@
 library(GeoMongo)
 
 
-if (.Platform$OS.type == "windows") {
+# path to files / folder
+#---------------------
 
-  PATH = paste0(getwd(), path.expand("\\geojson_tests\\"))
+PATH = paste0(getwd(), path.expand("/geojson_tests/"))
 
-  PATH_neigh = paste0(getwd(), path.expand("\\neighborhoods.json"))
+PATH_neigh = paste0(getwd(), path.expand("/neighborhoods.json"))
 
-  PATH_rest = paste0(getwd(), path.expand("\\restaurants.json"))
-}
+PATH_rest = paste0(getwd(), path.expand("/restaurants.json"))
 
 
-if (.Platform$OS.type == "unix") {
-
-  PATH = paste0(getwd(), path.expand("/geojson_tests/"))
-
-  PATH_neigh = paste0(getwd(), path.expand("/neighborhoods.json"))
-
-  PATH_rest = paste0(getwd(), path.expand("/restaurants.json"))
-}
-
+# initialize mongodb
+#-------------------
 
 init = geomongo$new(host = 'localhost', port = 27017)       # use default configuration [ localhost ]
 
 init_client = init$getClient()
 
-init_db = init_client$get_database("test")
+
+# get 'test' database
+#--------------------
+
+FUNC_get_testdb = function() {
+  
+  if (!"test" %in% init_client$database_names()) {
+    
+    tmp_db = init_client[["test"]]
+  }
+  
+  else {
+    
+    tmp_db = init_client$get_database("test")
+  }
+  
+  return(tmp_db)
+}
+
+
+init_db = FUNC_get_testdb()
 
 
 # function for collection
@@ -96,35 +109,70 @@ testthat::test_that("returns an error if the Argument parameter is not of type c
 #---------------------------------------
 
 
-testthat::test_that("bulk imports data in a specified database (restaurants collection)", {
+if (.Platform$OS.type == "unix") {
+  
+  testthat::test_that("bulk imports data in a specified database (restaurants collection)", {
+  
+    skip_test_if_no_modules(c("pymongo", "bson"))
+  
+    if (!"restaurants" %in% init_db$collection_names()) {
+  
+      ARGUMENT = paste("mongoimport -d test -c restaurants --type json --file", PATH_rest, sep = " ")
+  
+      mongodb_console(Argument = ARGUMENT)
+    }
+  
+      testthat::expect_true( "restaurants" %in% init_db$collection_names() )
+  })
+}
 
-  skip_test_if_no_modules(c("pymongo", "bson"))
 
-  if (!"restaurants" %in% init_db$collection_names()) {
+if (.Platform$OS.type == "unix") {
 
-    ARGUMENT = paste("mongoimport -d test -c restaurants --type json --file", PATH_rest, sep = " ")
+  testthat::test_that("bulk imports data in a specified database (neighborhoods collection)", {
+  
+    skip_test_if_no_modules(c("pymongo", "bson"))
+  
+    if (!"neighborhoods" %in% init_db$collection_names()) {
+  
+      ARGUMENT = paste("mongoimport -d test -c neighborhoods --type json --file", PATH_neigh, sep = " ")
+  
+      mongodb_console(Argument = ARGUMENT)
+    }
+  
+    testthat::expect_true( "neighborhoods" %in% init_db$collection_names() )
+  })
+}
 
-    mongodb_console(Argument = ARGUMENT)
-  }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    testthat::expect_true( "restaurants" %in% init_db$collection_names() )
-})
+# EXAMPLE ON HOW TO (BULK) IMPORT DATA ON WINDOWS   [ SEE ALSO : http://o7planning.org/en/10279/importing-and-exporting-mongodb-database#a69830]
+#------------------------------------------------
+
+# FIRST CHANGE TO THE DEFAULT MONGODB INSTALLATIONS DIRECTORY WHERE "bin" IS LOCATED (for instance) : setwd("C:\\Program Files\\MongoDB\\Server\\3.4\\bin")
+# ONE CAN FIND THE DEFAULT DIRECTORY BY RUNNING MONGO ON THE COMMAND SHELL AND THEN EXECUTE : db.serverCmdLineOpts()
+# THEN CONTINUE WITH THE FOLLOWING TEST CASE:
 
 
-testthat::test_that("bulk imports data in a specified database (neighborhoods collection)", {
+# if (.Platform$OS.type == "windows") {
+#   
+#   testthat::test_that("bulk imports data in a specified database (restaurants collection)", {
+#     
+#     skip_test_if_no_modules(c("pymongo", "bson"))
+#     
+#     if (!"restaurants" %in% init_db$collection_names()) {
+#       
+#       ARGUMENT = paste("mongoimport -d test -c restaurants --type json --file", PATH_rest, sep = " ")
+#       
+#       mongodb_console(Argument = ARGUMENT)
+#     }
+#     
+#     testthat::expect_true( "restaurants" %in% init_db$collection_names() )
+#   })
+# }
 
-  skip_test_if_no_modules(c("pymongo", "bson"))
 
-  if (!"neighborhoods" %in% init_db$collection_names()) {
-
-    ARGUMENT = paste("mongoimport -d test -c neighborhoods --type json --file", PATH_neigh, sep = " ")
-
-    mongodb_console(Argument = ARGUMENT)
-  }
-
-  testthat::expect_true( "neighborhoods" %in% init_db$collection_names() )
-})
-
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 #################################################################   initialize collections for "neighborhoods" and "restaurants"
 
@@ -358,41 +406,47 @@ testthat::test_that("it returns the correct output ('geoWithin-centerSphere' [ u
 
 #---------------neighborhoods
 
-testthat::test_that("it returns the correct output (for neighborhoods)", {
+if (.Platform$OS.type == "unix") {
 
-  skip_test_if_no_modules(c("pymongo", "bson"))
+  testthat::test_that("it returns the correct output (for neighborhoods)", {
+  
+    skip_test_if_no_modules(c("pymongo", "bson"))
+  
+    ints = init$geoQuery(QUERY = QUER, METHOD = "find", COLLECTION = init_neighb, GEOMETRY_NAME = 'geometry', TO_LIST = TRUE)       # ints : the returned list is an un-named list of length 1 [ this un-named list will include all other sublists ]
+  
+    res = ints[[1]]['geometry']$geometry                                                                                            # extract the 'geometry' object by taking the first list ( ints[[1]] )
+  
+    testthat::expect_true( inherits(res, "list") && length(ints[[1]]['geometry']$geometry$coordinates[[1]]) == 323 )
+  })
+}
 
-  ints = init$geoQuery(QUERY = QUER, METHOD = "find", COLLECTION = init_neighb, GEOMETRY_NAME = 'geometry', TO_LIST = TRUE)       # ints : the returned list is an un-named list of length 1 [ this un-named list will include all other sublists ]
 
-  res = ints[[1]]['geometry']$geometry                                                                                            # extract the 'geometry' object by taking the first list ( ints[[1]] )
+if (.Platform$OS.type == "unix") {
 
-  testthat::expect_true( inherits(res, "list") && length(ints[[1]]['geometry']$geometry$coordinates[[1]]) == 323 )
-})
-
-
-testthat::test_that("it returns the correct output (for restaurants taking into account the neighborhoods output)", {
-
-  skip_test_if_no_modules(c("pymongo", "bson"))
-
-  ints = init$geoQuery(QUERY = QUER, METHOD = "find", COLLECTION = init_neighb, GEOMETRY_NAME = 'geometry', TO_LIST = TRUE)
-
-  # take the result from the previous 'QUER'
-  #-----------------------------------------
-
-  QUER_rest = list('location' =
-
-                     list('$geoWithin' =
-
-                            list('$geometry' =
-
-                                   ints[[1]]['geometry']$geometry)
-                     )
-  )
-
-  ints_rest = init$geoQuery(QUERY = QUER_rest, METHOD = "find", COLLECTION = init_rest, GEOMETRY_NAME = 'location', TO_LIST = F)
-
-  testthat::expect_true( inherits(ints_rest, "data.table") && nrow(ints_rest) == 127 )
-})
+  testthat::test_that("it returns the correct output (for restaurants taking into account the neighborhoods output)", {
+  
+    skip_test_if_no_modules(c("pymongo", "bson"))
+  
+    ints = init$geoQuery(QUERY = QUER, METHOD = "find", COLLECTION = init_neighb, GEOMETRY_NAME = 'geometry', TO_LIST = TRUE)
+  
+    # take the result from the previous 'QUER'
+    #-----------------------------------------
+  
+    QUER_rest = list('location' =
+  
+                       list('$geoWithin' =
+  
+                              list('$geometry' =
+  
+                                     ints[[1]]['geometry']$geometry)
+                       )
+    )
+  
+    ints_rest = init$geoQuery(QUERY = QUER_rest, METHOD = "find", COLLECTION = init_rest, GEOMETRY_NAME = 'location', TO_LIST = F)
+  
+    testthat::expect_true( inherits(ints_rest, "data.table") && nrow(ints_rest) == 127 )
+  })
+}
 
 
 ##############################################################################################################################################################

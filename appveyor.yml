@@ -1,21 +1,51 @@
 # DO NOT CHANGE the "init" and "install" sections below
 
+environment:
+  matrix:
+    - PYTHON: "C:\\Python35"
+      PYTHON_VERSION: 3.5
+      PYTHON_ARCH: 32
+
+    - PYTHON: "C:\Python27"
+      PYTHON_VERSION: 2.7
+      PYTHON_ARCH: 32
+
 # Download script file from GitHub
 init:
-  ps: |
-        $ErrorActionPreference = "Stop"
-        Invoke-WebRequest http://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
-        Import-Module '..\appveyor-tool.ps1'
+  - ps: |
+          $ErrorActionPreference = "Stop"
+          Invoke-WebRequest http://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
+          Import-Module '..\appveyor-tool.ps1'
+          
+  - ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%
 
 install:
-  ps: Bootstrap
+  - ps: Bootstrap
+  - python -m pip install -U pip
+  - python -m pip install --upgrade pymongo
+  - python -m pip install jsonschema
+
 
 cache:
   - C:\RLibrary
 
 # Adapt as necessary starting from here
 
+services:
+  - mongodb
+
 build_script:
+  - travis-tool.sh install_r devtools
+  - travis-tool.sh install_r roxygen2
+  - travis-tool.sh install_r testthat
+  - travis-tool.sh install_r knitr
+  - travis-tool.sh install_r rmarkdown
+  - travis-tool.sh install_r covr
+  - travis-tool.sh install_r reticulate
+  - travis-tool.sh install_r geojsonR
+  - travis-tool.sh install_r data.table
+  - travis-tool.sh install_r R6
+  - travis-tool.sh install_r htmltools
   - travis-tool.sh install_deps
 
 test_script:
