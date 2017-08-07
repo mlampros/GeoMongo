@@ -1,15 +1,15 @@
 Package: GeoMongo
 Type: Package
-Title: Geospatial Queries Using PyMongo
+Title: Geospatial Queries Using 'PyMongo'
 Version: 1.0.0
-Date: 2017-08-06
+Date: 2017-08-07
 Author: Lampros Mouselimis <mouselimislampros@gmail.com>
 Maintainer: Lampros Mouselimis <mouselimislampros@gmail.com>
 BugReports: https://github.com/mlampros/GeoMongo/issues
 URL: https://github.com/mlampros/GeoMongo
 Description: Utilizes methods of the 'PyMongo' 'Python' library to initialize, insert and query 'GeoJson' data (see <https://api.mongodb.com/python/current/#> for more information on 'PyMongo'). Furthermore, it allows the user to validate 'GeoJson' objects and to use the console for 'MongoDB' (bulk) commands. The 'reticulate' package provides the 'R' interface to 'Python' modules, classes and functions.
 License: Apache License 2.0
-SystemRequirements: MongoDB (>= 3.4.0), Python (>= 2.7)
+SystemRequirements: MongoDB (>= 3.4.0), Python (>= 2.7). Installation instructions and links can be found in the README file.
 Depends:
     R(>= 3.2.3)
 Imports:
