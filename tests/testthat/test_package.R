@@ -554,4 +554,3 @@ testthat::test_that("it returns an error if the 'json_schema' is not a named lis
   
   testthat::expect_silent( json_schema_validator(json_data = data_dict, json_schema = schema_dict) )
 })
-
