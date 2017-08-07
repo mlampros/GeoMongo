@@ -539,7 +539,15 @@ mongodb_console = function(Argument = NULL) {
 
   if (!inherits(Argument, "character")) { stop("the 'Argument' parameter should be of type character", call. = F) }
 
-  system(Argument)
+  if (.Platform$OS.type == "unix") {
+    
+    system(Argument)
+  }
+  
+  if (.Platform$OS.type == "windows") {
+    
+    shell(Argument)
+  }
 
   invisible()
 }
