@@ -23,6 +23,10 @@ The **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb
 
 * Python (>= 2.7)
 
+* [PyMongo](http://api.mongodb.com/python/current/installation.html) (to install use : **python -m pip install pymongo**)
+
+* [jsonschema](https://pypi.python.org/pypi/jsonschema) (to install use : **python -m pip install jsonschema**)
+
 
 <br>
 
@@ -54,3 +58,4 @@ Use the following link to report bugs/issues,
 [https://github.com/mlampros/GeoMongo/issues](https://github.com/mlampros/GeoMongo/issues)
 
 <br>
+
