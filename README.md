@@ -1,4 +1,11 @@
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/GeoMongo)](http://cran.r-project.org/package=GeoMongo)
+[![Travis-CI Build Status](https://travis-ci.org/mlampros/GeoMongo.svg?branch=master)](https://travis-ci.org/mlampros/GeoMongo)
+[![codecov.io](https://codecov.io/github/mlampros/GeoMongo/coverage.svg?branch=master)](https://codecov.io/github/mlampros/GeoMongo?branch=master)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mlampros/GeoMongo?branch=master&svg=true)](https://ci.appveyor.com/project/mlampros/GeoMongo/branch/master)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/GeoMongo?color=blue)](http://www.r-pkg.org/pkg/GeoMongo)
+
+
 
 ## GeoMongo
 <br>
@@ -51,3 +58,4 @@ Use the following link to report bugs/issues,
 [https://github.com/mlampros/GeoMongo/issues](https://github.com/mlampros/GeoMongo/issues)
 
 <br>
+
