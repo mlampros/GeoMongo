@@ -3,9 +3,8 @@
 language: r
 pandoc_version: 1.18
 python:
-  - 2.7
   - 3.5
-  - 3.6
+  - 2.7
 
 sudo: required
 cache: packages
@@ -27,7 +26,6 @@ before_install:
   - sudo python -m pip install --upgrade pymongo
   - sudo pip install jsonschema
   - sudo apt-get install r-base-dev
-  - tlmgr install index
   - sudo apt-get update
 
 r_packages:
