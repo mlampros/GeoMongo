@@ -8,26 +8,18 @@
 
 library(GeoMongo)
 
+# path to files / folder
+#---------------------
 
-if (.Platform$OS.type == "windows") {
+PATH = paste0(getwd(), path.expand("/geojson_tests/"))
 
-  PATH = paste0(getwd(), path.expand("\\geojson_tests\\"))
+PATH_neigh = paste0(getwd(), path.expand("/neighborhoods.json"))
 
-  PATH_neigh = paste0(getwd(), path.expand("\\neighborhoods.json"))
-
-  PATH_rest = paste0(getwd(), path.expand("\\restaurants.json"))
-}
+PATH_rest = paste0(getwd(), path.expand("/restaurants.json"))
 
 
-if (.Platform$OS.type == "unix") {
-
-  PATH = paste0(getwd(), path.expand("/geojson_tests/"))
-
-  PATH_neigh = paste0(getwd(), path.expand("/neighborhoods.json"))
-
-  PATH_rest = paste0(getwd(), path.expand("/restaurants.json"))
-}
-
+# by default use the "test" database
+#------------------------------------
 
 init = geomongo$new(host = 'localhost', port = 27017)       # use default configuration [ localhost ]
 
