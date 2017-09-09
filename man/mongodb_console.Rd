@@ -4,10 +4,12 @@
 \alias{mongodb_console}
 \title{MongoDB (bulk) commands}
 \usage{
-mongodb_console(Argument = NULL)
+mongodb_console(Argument = NULL, ...)
 }
 \arguments{
 \item{Argument}{a character string specifying the mongodb shell command to run from within an R-session}
+
+\item{...}{the \emph{ellipsis} (...) parameter allows a unix-user (windows-user) to give additional parameters to the base-R \emph{system() (shell())} function which is run in background.}
 }
 \description{
 MongoDB (bulk) commands
@@ -15,6 +17,7 @@ MongoDB (bulk) commands
 \details{
 MongoDB shell commands are important for instance if someone has to import/export bulk data to a mongo database. This R function utilizes the \emph{system} base function to run the mongodb shell command from
 within an R-session. See the reference links for more details.
+The \emph{ellipsis} (...) parameter could be used for instance to disallow messages be printed in the console (on unix by using \emph{ignore.stdout} and \emph{ignore.stderr}).
 }
 \examples{
 
