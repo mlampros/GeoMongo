@@ -10,7 +10,7 @@
 ## GeoMongo
 <br>
 
-The **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb.com/python/current/#) Python library to initialize, insert and query GeoJson data. Furthermore, it allows the user to validate GeoJson objects and to use the console for [*MongoDB*](https://www.mongodb.com/) (bulk) commands. The [*reticulate*](https://github.com/rstudio/reticulate) package provides the R interface to Python modules, classes and functions. More details on the functionality of GeoMongo can be found in the package Vignette.
+The **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb.com/python/current/#) Python library to initialize, insert and query GeoJson data. Furthermore, it allows the user to validate GeoJson objects and to use the console for [*MongoDB*](https://www.mongodb.com/) (bulk) commands. The [*reticulate*](https://github.com/rstudio/reticulate) package provides the R interface to Python modules, classes and functions. More details on the functionality of GeoMongo can be found in the [blog post](http://mlampros.github.io/2017/08/07/the_GeoMongo_package/) and in the package Vignette.
 
 
 <br>
