@@ -4,7 +4,7 @@
 [![codecov.io](https://codecov.io/github/mlampros/GeoMongo/coverage.svg?branch=master)](https://codecov.io/github/mlampros/GeoMongo?branch=master)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mlampros/GeoMongo?branch=master&svg=true)](https://ci.appveyor.com/project/mlampros/GeoMongo/branch/master)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/GeoMongo?color=blue)](http://www.r-pkg.org/pkg/GeoMongo)
-
+<a href="https://www.buymeacoffee.com/VY0x8snyh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
 
 
 ## GeoMongo
