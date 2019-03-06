@@ -2,13 +2,13 @@
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python35"             # Python 2.7 will reach the end of its life on January 1st, 2020 [ thus test only on python >= 3.5 ]
       PYTHON_VERSION: 3.5
       PYTHON_ARCH: 32
 
-    - PYTHON: "C:\Python27"
-      PYTHON_VERSION: 2.7
-      PYTHON_ARCH: 32
+    #- PYTHON: "C:\Python27"
+    #  PYTHON_VERSION: 2.7
+    #  PYTHON_ARCH: 32
 
 # Download script file from GitHub
 init:

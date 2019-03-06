@@ -21,11 +21,11 @@ The **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb
 
 * [MongoDB (>= 3.4.0)](https://docs.mongodb.com/manual/installation/)
 
-* Python (>= 2.7)
+* Python (>= 2.7) [ preferably python 3 because Python 2.7 will reach the end of its life on January 1st, 2020 ]
 
-* [PyMongo](http://api.mongodb.com/python/current/installation.html) (to install use : **python -m pip install pymongo**)
+* [PyMongo](http://api.mongodb.com/python/current/installation.html) (to install use : **python3 -m pip install --upgrade pymongo**)
 
-* [jsonschema](https://pypi.python.org/pypi/jsonschema) (to install use : **python -m pip install jsonschema**)
+* [jsonschema](https://pypi.python.org/pypi/jsonschema) (to install use : **pip3 install jsonschema --ignore-installed six**)
 
 
 <br>
