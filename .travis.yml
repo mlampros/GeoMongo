@@ -22,7 +22,7 @@ env:
 before_install:
   - sudo apt-get install python3-pip
   - sudo pip3 install --upgrade pip
-  - sudo python3 -m pip3 install --upgrade pymongo
+  - sudo python3 -m pip install --upgrade pymongo
   - sudo pip3 install jsonschema
   - sudo apt-get install r-base-dev
   - sudo apt-get update
