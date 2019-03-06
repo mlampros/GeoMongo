@@ -21,7 +21,7 @@ PATH_rest = paste0(getwd(), path.expand("/restaurants.json"))
 # initialize mongodb
 #-------------------
 
-init = geomongo$new(host = 'localhost', port = 27017)       # use default configuration [ localhost ]
+init = geomongo$new()       # use default configuration [ host = 'localhost', port = 27017]
 
 init_client = init$getClient()
 
@@ -276,7 +276,7 @@ testthat::test_that("returns an error if the COLLECTION parameter is not specifi
 
   skip_test_if_no_modules(c("pymongo", "bson"))
 
-  init = geomongo$new(host = 'localhost', port = 27017)       # use default configuration [ localhost ]
+  init = geomongo$new()       # use default configuration [ localhost ]
 
   init_client = init$getClient()
 
@@ -292,7 +292,7 @@ testthat::test_that("returns a warning if the COLLECTION or the GEOMETRY_NAME pa
 
   skip_test_if_no_modules(c("pymongo", "bson"))
 
-  init = geomongo$new(host = 'localhost', port = 27017)       # use default configuration [ localhost ]
+  init = geomongo$new()       # use default configuration [ localhost ]
 
   init_client = init$getClient()
 
@@ -326,7 +326,7 @@ testthat::test_that("returns an error if the GEOMETRY_NAME parameter is NULL (an
 
   skip_test_if_no_modules(c("pymongo", "bson"))
 
-  init = geomongo$new(host = 'localhost', port = 27017)       # use default configuration [ localhost ]
+  init = geomongo$new()       # use default configuration [ localhost ]
 
   init_client = init$getClient()
 
