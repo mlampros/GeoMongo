@@ -5,6 +5,9 @@ pandoc_version: 1.18
 python:
   - 3.5                      # Python 2.7 will reach the end of its life on January 1st, 2020 [ thus test only on python >= 3.5 ]
 
+os:
+  - linux
+
 sudo: required
 cache: packages
 
@@ -23,7 +26,7 @@ before_install:
   - sudo apt-get install python3-pip
   - sudo pip3 install --upgrade pip
   - sudo python3 -m pip install --upgrade pymongo
-  - sudo pip3 install jsonschema
+  - sudo pip3 install jsonschema --ignore-installed six
   - sudo apt-get install r-base-dev
   - sudo apt-get update
 
