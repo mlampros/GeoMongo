@@ -2,7 +2,7 @@
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python35"             # Python 2.7 will reach the end of its life on January 1st, 2020 [ thus test only on python >= 3.5 ]
+    - PYTHON: "C:\\Python35"                          # Python 2.7 will reach the end of its life on January 1st, 2020 [ thus test only on python >= 3.5 ]
       PYTHON_VERSION: 3.5
       PYTHON_ARCH: 32
 
@@ -21,7 +21,7 @@ init:
 
 install:
   - ps: Bootstrap
-  - python -m pip install -U pip                 # don't use python3 here
+  - python -m pip install -U pip
   - python -m pip install --upgrade pymongo
   - python -m pip install jsonschema
 
