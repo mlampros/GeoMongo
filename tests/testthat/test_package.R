@@ -19,9 +19,9 @@ PATH_rest = paste0(getwd(), path.expand("/restaurants.json"))
 
 context('test GeoMongo package')
 
-#---------------------------------------------------------------------------------------------
+#*********************************************************************************************
 # run the following tests only if python is configured and the required packages are installed
-#---------------------------------------------------------------------------------------------
+#*********************************************************************************************
 
 if ( reticulate::py_available() && reticulate::py_module_available("pymongo") && reticulate::py_module_available("bson") && reticulate::py_module_available("jsonschema") ) {
 

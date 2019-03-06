@@ -21,9 +21,9 @@ init:
 
 install:
   - ps: Bootstrap
-  - python -m pip install -U pip
-  - python -m pip install --upgrade pymongo
-  - python -m pip install jsonschema
+  - python3 -m pip install -U pip
+  - python3 -m pip install --upgrade pymongo
+  - python3 -m pip install jsonschema
 
 
 cache:
