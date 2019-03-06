@@ -58,4 +58,3 @@ Use the following link to report bugs/issues,
 [https://github.com/mlampros/GeoMongo/issues](https://github.com/mlampros/GeoMongo/issues)
 
 <br>
-
