@@ -4,48 +4,14 @@
 \name{geomongo}
 \alias{geomongo}
 \title{mongodb geospatial methods ( using PyMongo in R )}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
 \usage{
 # init <- geomongo$new(host = 'localhost', port = 27017,
 
        #                      tz_aware = FALSE, connect = TRUE, ...)
 }
-\arguments{
-\item{host}{(optional) hostname or IP address or Unix domain socket path of a single mongod or mongos instance to connect to, or a mongodb URI, or a list of hostnames / mongodb URIs. See the reference link for more information.}
-
-\item{port}{(optional) port number on which to connect}
-
-\item{document_class}{(optional) default class to use for documents returned from queries on this client}
-
-\item{tz_aware}{(optional) if TRUE, datetime instances returned as values in a document by this MongoClient will be timezone aware (otherwise they will be naive)}
-
-\item{connect}{(optional) if TRUE (the default), immediately begin connecting to MongoDB in the background. Otherwise connect on the first operation}
-
-\item{...}{See the reference link for more details on the \emph{ellipsis} (...) concerning the additional parameters of the MongoClient()}
-
-\item{FILE}{a character string specifying a valid path to a file ( applies to \emph{read_mongo_bson} method )}
-
-\item{STR}{a character string ( applies to \emph{read_mongo_bson} method )}
-
-\item{DATA}{a valid path to a file/folder or a list ( applies to \emph{geoInsert} method )}
-
-\item{TYPE_DATA}{a character string. One of 'folder', 'file', 'dict_one' (takes as input a \emph{list} or a \emph{character string}) or 'dict_many' (takes as input a \emph{list} or a \emph{character string vector}) ( applies to \emph{geoInsert} method )}
-
-\item{COLLECTION}{a \emph{pymongo.collection.Collection} object ( applies to \emph{geoInsert} and \emph{geoQuery} methods )}
-
-\item{GEOMETRY_NAME}{a character string specifying the name of the geometry object, as it appears in the file/string ( applies to \emph{geoInsert} and \emph{geoQuery} methods )}
-
-\item{read_method}{a character string specifying the method to use to read the data. Either using the \emph{"geojsonR"} (package) or the \emph{"mongo_bson"} utility function ( applies to \emph{geoInsert} method )}
-
-\item{QUERY}{a named list specifying the query to use in mongodb ( applies to \emph{geoQuery} method )}
-
-\item{METHOD}{a character string specifying the method to use to perform geospatial queries in mongodb. One of "find", "aggregate" OR "command" ( applies to \emph{geoQuery} method )}
-
-\item{DATABASE}{a \emph{"pymongo.database.Database"} object ( applies to \emph{geoQuery} method )}
-
-\item{TO_LIST}{either TRUE or FALSE. If TRUE then the output of the \emph{geoQuery} method will be a list, otherwise a data.table (matrix) object ( applies to \emph{geoQuery} method )}
-}
 \description{
+mongodb geospatial methods ( using PyMongo in R )
+
 mongodb geospatial methods ( using PyMongo in R )
 }
 \details{
@@ -98,6 +64,7 @@ Valid latitude values are between -90 and 90 (both inclusive).
 \examples{
 
 \dontrun{
+
 library(GeoMongo)
 
 init = geomongo$new()
@@ -125,6 +92,154 @@ init$geoQuery(QUERY = query_geonear, METHOD = "aggregate", COLLECTION = init_col
 }
 }
 \references{
-https://api.mongodb.com/python/current/api/index.html, https://docs.mongodb.com/manual/tutorial/calculate-distances-using-spherical-geometry-with-2d-geospatial-indexes/
+https://github.com/mongodb/mongo-python-driver, https://docs.mongodb.com/manual/tutorial/calculate-distances-using-spherical-geometry-with-2d-geospatial-indexes/
 }
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{geomongo$new()}}
+\item \href{#method-getClient}{\code{geomongo$getClient()}}
+\item \href{#method-read_mongo_bson}{\code{geomongo$read_mongo_bson()}}
+\item \href{#method-geoInsert}{\code{geomongo$geoInsert()}}
+\item \href{#method-geoQuery}{\code{geomongo$geoQuery()}}
+\item \href{#method-clone}{\code{geomongo$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{geomongo$new(
+  host = "localhost",
+  port = 27017,
+  tz_aware = FALSE,
+  connect = TRUE,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{host}}{(optional) hostname or IP address or Unix domain socket path of a single mongod or mongos instance to connect to, or a mongodb URI, or a list of hostnames / mongodb URIs. See the reference link for more information.}
+
+\item{\code{port}}{(optional) port number on which to connect}
+
+\item{\code{tz_aware}}{(optional) if TRUE, datetime instances returned as values in a document by this MongoClient will be timezone aware (otherwise they will be naive)}
+
+\item{\code{connect}}{(optional) if TRUE (the default), immediately begin connecting to MongoDB in the background. Otherwise connect on the first operation}
+
+\item{\code{...}}{See the reference link for more details on the \emph{ellipsis} (...) concerning the additional parameters of the MongoClient()}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getClient"></a>}}
+\if{latex}{\out{\hypertarget{method-getClient}{}}}
+\subsection{Method \code{getClient()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{geomongo$getClient()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-read_mongo_bson"></a>}}
+\if{latex}{\out{\hypertarget{method-read_mongo_bson}{}}}
+\subsection{Method \code{read_mongo_bson()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{geomongo$read_mongo_bson(FILE = NULL, STR = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{FILE}}{a character string specifying a valid path to a file ( applies to \emph{read_mongo_bson} method )}
+
+\item{\code{STR}}{a character string ( applies to \emph{read_mongo_bson} method )}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-geoInsert"></a>}}
+\if{latex}{\out{\hypertarget{method-geoInsert}{}}}
+\subsection{Method \code{geoInsert()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{geomongo$geoInsert(
+  DATA = NULL,
+  TYPE_DATA = NULL,
+  COLLECTION = NULL,
+  GEOMETRY_NAME = NULL,
+  read_method = "geojsonR"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{DATA}}{a valid path to a file/folder or a list ( applies to \emph{geoInsert} method )}
+
+\item{\code{TYPE_DATA}}{a character string. One of 'folder', 'file', 'dict_one' (takes as input a \emph{list} or a \emph{character string}) or 'dict_many' (takes as input a \emph{list} or a \emph{character string vector}) ( applies to \emph{geoInsert} method )}
+
+\item{\code{COLLECTION}}{a \emph{pymongo.collection.Collection} object ( applies to \emph{geoInsert} and \emph{geoQuery} methods )}
+
+\item{\code{GEOMETRY_NAME}}{a character string specifying the name of the geometry object, as it appears in the file/string ( applies to \emph{geoInsert} and \emph{geoQuery} methods )}
+
+\item{\code{read_method}}{a character string specifying the method to use to read the data. Either using the \emph{"geojsonR"} (package) or the \emph{"mongo_bson"} utility function ( applies to \emph{geoInsert} method )}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-geoQuery"></a>}}
+\if{latex}{\out{\hypertarget{method-geoQuery}{}}}
+\subsection{Method \code{geoQuery()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{geomongo$geoQuery(
+  QUERY = NULL,
+  METHOD = NULL,
+  COLLECTION = NULL,
+  DATABASE = NULL,
+  GEOMETRY_NAME = NULL,
+  TO_LIST = FALSE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{QUERY}}{a named list specifying the query to use in mongodb ( applies to \emph{geoQuery} method )}
+
+\item{\code{METHOD}}{a character string specifying the method to use to perform geospatial queries in mongodb. One of "find", "aggregate" OR "command" ( applies to \emph{geoQuery} method )}
+
+\item{\code{COLLECTION}}{a \emph{pymongo.collection.Collection} object ( applies to \emph{geoInsert} and \emph{geoQuery} methods )}
+
+\item{\code{DATABASE}}{a \emph{"pymongo.database.Database"} object ( applies to \emph{geoQuery} method )}
+
+\item{\code{GEOMETRY_NAME}}{a character string specifying the name of the geometry object, as it appears in the file/string ( applies to \emph{geoInsert} and \emph{geoQuery} methods )}
+
+\item{\code{TO_LIST}}{either TRUE or FALSE. If TRUE then the output of the \emph{geoQuery} method will be a list, otherwise a data.table (matrix) object ( applies to \emph{geoQuery} method )}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{geomongo$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

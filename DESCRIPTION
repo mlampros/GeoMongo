@@ -1,25 +1,26 @@
 Package: GeoMongo
 Type: Package
 Title: Geospatial Queries Using 'PyMongo'
-Version: 1.0.1
-Date: 2017-09-09
-Author: Lampros Mouselimis <mouselimislampros@gmail.com>
-Maintainer: Lampros Mouselimis <mouselimislampros@gmail.com>
+Version: 1.0.2
+Date: 2021-05-07
+Authors@R: c( person(given = "Lampros", family = "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0002-8024-1546")))
 BugReports: https://github.com/mlampros/GeoMongo/issues
 URL: https://github.com/mlampros/GeoMongo
-Description: Utilizes methods of the 'PyMongo' 'Python' library to initialize, insert and query 'GeoJson' data (see <https://api.mongodb.com/python/current/#> for more information on 'PyMongo'). Furthermore, it allows the user to validate 'GeoJson' objects and to use the console for 'MongoDB' (bulk) commands. The 'reticulate' package provides the 'R' interface to 'Python' modules, classes and functions.
+Description: Utilizes methods of the 'PyMongo' 'Python' library to initialize, insert and query 'GeoJson' data (see <https://github.com/mongodb/mongo-python-driver> for more information on 'PyMongo'). Furthermore, it allows the user to validate 'GeoJson' objects and to use the console for 'MongoDB' (bulk) commands. The 'reticulate' package provides the 'R' interface to 'Python' modules, classes and functions.
 License: Apache License 2.0
 SystemRequirements: MongoDB (>= 3.4.0), Python (>= 2.7). Installation instructions and links can be found in the README file.
 Depends:
     R(>= 3.2.3)
 Imports:
-    reticulate, R6, geojsonR, data.table
+    reticulate, 
+    R6, 
+    geojsonR, 
+    data.table
 Suggests:
     testthat,
     covr,
     knitr,
     rmarkdown
 Encoding: UTF-8
-LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr

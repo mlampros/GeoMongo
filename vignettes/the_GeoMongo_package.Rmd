@@ -661,7 +661,7 @@ Args_Kwargs = list("geoNear", "places",
 
 <br>
 
-Information about the various parameters of the *command* method can be found in the [PyMongo documentation](http://api.mongodb.com/python/current/api/pymongo/database.html?highlight=command#pymongo.database.Database.command).
+Information about the various parameters of the *command* method can be found in the [PyMongo documentation](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html).
 
 <br>
 
@@ -703,7 +703,7 @@ which returns only the 'Parks' (of the *category* property name) from the input 
 
 <br>
 
-The following two blog posts include also a variety of geospatial queries ( [here](http://tugdualgrall.blogspot.gr/2014/08/introduction-to-mongodb-geospatial.html) and [here](https://docs.mongodb.com/manual/tutorial/geospatial-tutorial/) ).
+The following two blog posts include also a variety of geospatial queries ( [here](http://tugdualgrall.blogspot.com/2014/08/introduction-to-mongodb-geospatial.html) and [here](https://docs.mongodb.com/manual/tutorial/geospatial-tutorial/) ).
 
 <br>
 

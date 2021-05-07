@@ -9,32 +9,19 @@ MONGO <- NULL; BSON <- NULL; SCHEMA <- NULL; BUILTINS <- NULL;
 
 .onLoad <- function(libname, pkgname) {
 
-  if (reticulate::py_available(initialize = TRUE)) {
+  try({
+    BUILTINS <<- reticulate::import_builtins(convert = FALSE)                      # 'buildins' are used in non-ascii languages (see issue https://github.com/mlampros/fuzzywuzzyR/issues/3) where the R-function accepts a python object as input [ convert = FALSE ]
+  }, silent=TRUE)
 
-    if (reticulate::py_module_available("pymongo")) {
+  try({
+    MONGO <<- reticulate::import("pymongo", delay_load = TRUE)                     # delay load foo module ( will only be loaded when accessed via $ )
+  }, silent=TRUE)
 
-      MONGO <<- reticulate::import("pymongo", delay_load = TRUE)
-    }
-    else {
-      packageStartupMessage("The 'pymongo' module is not available!")
-    }
+  try({
+    BSON <<- reticulate::import("bson.json_util", delay_load = TRUE)
+  }, silent=TRUE)
 
-    if (reticulate::py_module_available("bson")) {
-
-      BSON <<- reticulate::import("bson.json_util", delay_load = TRUE)
-    }
-    else {
-      packageStartupMessage("The 'bson' module is not available!")
-    }
-
-    if (reticulate::py_module_available("jsonschema")) {
-
-      SCHEMA <<- reticulate::import('jsonschema', delay_load = TRUE)
-    }
-    else {
-      packageStartupMessage("The 'jsonschema' module is not available!")
-    }
-
-    BUILTINS <<- reticulate::import_builtins(convert = FALSE)
-  }
+  try({
+    SCHEMA <<- reticulate::import('jsonschema', delay_load = TRUE)
+  }, silent=TRUE)
 }

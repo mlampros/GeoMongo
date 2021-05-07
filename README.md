@@ -10,7 +10,7 @@
 ## GeoMongo
 <br>
 
-The **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb.com/python/current/#) Python library to initialize, insert and query GeoJson data. Furthermore, it allows the user to validate GeoJson objects and to use the console for [*MongoDB*](https://www.mongodb.com/) (bulk) commands. The [*reticulate*](https://github.com/rstudio/reticulate) package provides the R interface to Python modules, classes and functions. More details on the functionality of GeoMongo can be found in the [blog post](http://mlampros.github.io/2017/08/07/the_GeoMongo_package/) and in the package Vignette.
+The **GeoMongo** package utilizes methods of the [*PyMongo*](https://github.com/mongodb/mongo-python-driver) Python library to initialize, insert and query GeoJson data. Furthermore, it allows the user to validate GeoJson objects and to use the console for [*MongoDB*](https://www.mongodb.com/) (bulk) commands. The [*reticulate*](https://github.com/rstudio/reticulate) package provides the R interface to Python modules, classes and functions. More details on the functionality of GeoMongo can be found in the [blog post](http://mlampros.github.io/2017/08/07/the_GeoMongo_package/) and in the package Vignette.
 
 
 <br>
@@ -23,9 +23,9 @@ The **GeoMongo** package utilizes methods of the [*PyMongo*](https://api.mongodb
 
 * Python (>= 2.7) [ preferably python 3 because Python 2.7 will reach the end of its life on January 1st, 2020 ]
 
-* [PyMongo](http://api.mongodb.com/python/current/installation.html) (to install use : **python3 -m pip install --upgrade pymongo**)
+* [PyMongo](https://github.com/mongodb/mongo-python-driver#installation) (to install use : **python3 -m pip install --upgrade pymongo**)
 
-* [jsonschema](https://pypi.python.org/pypi/jsonschema) (to install use : **pip3 install jsonschema --ignore-installed six**)
+* [jsonschema](https://pypi.org/project/jsonschema/) (to install use : **pip3 install jsonschema --ignore-installed six**)
 
 
 <br>
@@ -56,5 +56,24 @@ Use the following link to report bugs/issues,
 <br><br>
 
 [https://github.com/mlampros/GeoMongo/issues](https://github.com/mlampros/GeoMongo/issues)
+
+<br>
+
+### **Citation:**
+
+If you use the **Geomongo** R package in your paper or research please cite:
+
+<br>
+
+```R
+bibentry(
+  bibtype = "Manual",
+  title   = "{GeoMongo}: Geospatial Queries Using 'PyMongo'",
+  author  = person("Lampros", "Mouselimis"),
+  year = {2021},
+  note = {R package version 1.0.2},
+  url     = "https://CRAN.R-project.org/package=GeoMongo"
+)
+```
 
 <br>

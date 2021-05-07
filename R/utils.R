@@ -7,7 +7,6 @@
 #' @param document_class (optional) default class to use for documents returned from queries on this client
 #' @param tz_aware (optional) if TRUE, datetime instances returned as values in a document by this MongoClient will be timezone aware (otherwise they will be naive)
 #' @param connect (optional) if TRUE (the default), immediately begin connecting to MongoDB in the background. Otherwise connect on the first operation
-#' @param ... See the reference link for more details on the \emph{ellipsis} (...) concerning the additional parameters of the MongoClient()
 #' @param FILE a character string specifying a valid path to a file ( applies to \emph{read_mongo_bson} method )
 #' @param STR a character string ( applies to \emph{read_mongo_bson} method )
 #' @param DATA a valid path to a file/folder or a list ( applies to \emph{geoInsert} method )
@@ -21,6 +20,8 @@
 #' @param TO_LIST either TRUE or FALSE. If TRUE then the output of the \emph{geoQuery} method will be a list, otherwise a data.table (matrix) object ( applies to \emph{geoQuery} method )
 #' @export
 #' @details
+#'
+#' See the reference link for more details on the \emph{ellipsis} (...) concerning the additional parameters of the MongoClient()
 #'
 #' the \emph{geomongo$new} method initializes the MongoClient
 #'
@@ -45,7 +46,7 @@
 #' Valid latitude values are between -90 and 90 (both inclusive).
 #'
 #' @references
-#' https://api.mongodb.com/python/current/api/index.html, https://docs.mongodb.com/manual/tutorial/calculate-distances-using-spherical-geometry-with-2d-geospatial-indexes/
+#' https://github.com/mongodb/mongo-python-driver, https://docs.mongodb.com/manual/tutorial/calculate-distances-using-spherical-geometry-with-2d-geospatial-indexes/
 #' @docType class
 #' @importFrom R6 R6Class
 #' @import reticulate
@@ -79,6 +80,7 @@
 #' @examples
 #'
 #' \dontrun{
+#'
 #' library(GeoMongo)
 #'
 #' init = geomongo$new()
@@ -471,38 +473,41 @@ geomongo <- R6::R6Class("geomongo",
 #'
 #' In case that \emph{type} is at the same time also a property name in the json data, then do not include \emph{"type" = "string"} in the json schema ( https://github.com/epoberezkin/ajv/issues/137 )
 #' @export
-#' @references https://pypi.python.org/pypi/jsonschema, http://python-jsonschema.readthedocs.io/en/latest/
+#' @references https://pypi.org/project/jsonschema/, https://python-jsonschema.readthedocs.io/en/latest/
 #' @examples
 #'
-#' library(GeoMongo)
+#' try({
+#'   if (reticulate::py_available(initialize = TRUE)) {
+#'     if (reticulate::py_module_available("jsonschema")) {
 #'
-#' if (reticulate::py_available() && reticulate::py_module_available("jsonschema")) {
+#'       library(GeoMongo)
 #'
-#'  schema_dict = list("type" = "object",
+#'       schema_dict = list("type" = "object",
 #'
-#'                       "properties" = list(
+#'                          "properties" = list(
 #'
-#'                         "name" = list("type" = "string"),
+#'                            "name" = list("type" = "string"),
 #'
 #'                            "location" = list("type" = "object",
 #'
-#'                            "properties" = list(
+#'                                              "properties" = list(
 #'
-#'                             "type" = list("enum" = c("Point", "Polygon")),
+#'                                                "type" = list("enum" = c("Point", "Polygon")),
 #'
-#'                             "coordinates" = list("type" = "array")
-#'  ))))
-#'
-#'
-#'  data_dict = list("name" = "example location",
-#'
-#'                  "location" = list("type" = "Point", "coordinates" = c(-120.24, 39.21)))
+#'                                                "coordinates" = list("type" = "array")
+#'                                              ))))
 #'
 #'
-#'  json_schema_validator(json_data = data_dict, json_schema = schema_dict)
+#'       data_dict = list("name" = "example location",
 #'
-#' }
+#'                        "location" = list("type" = "Point", "coordinates" = c(-120.24, 39.21)))
 #'
+#'
+#'       json_schema_validator(json_data = data_dict, json_schema = schema_dict)
+#'     }
+#'   }
+#' }, silent=TRUE)
+
 
 json_schema_validator = function(json_data = NULL, json_schema = NULL) {
 
@@ -530,15 +535,17 @@ json_schema_validator = function(json_data = NULL, json_schema = NULL) {
 #' within an R-session. See the reference links for more details.
 #' The \emph{ellipsis} (...) parameter could be used for instance to disallow messages be printed in the console (on unix by using \emph{ignore.stdout} and \emph{ignore.stderr}).
 #' @export
-#' @references https://docs.mongodb.com/manual/reference/program/mongoimport/,  https://docs.mongodb.com/manual/reference/program/mongoexport/
+#' @references https://docs.mongodb.com/manual/reference/program/mongoimport/, https://docs.mongodb.com/manual/reference/program/mongoexport/
 #' @examples
 #'
 #' \dontrun{
+#'
 #' library(GeoMongo)
 #'
 #' ARGs = "mongoimport -d DB -c COLLECTION --type json --file /MY_DATA.json"
 #'
 #' mongodb_console(Argument = ARGs)
+#'
 #' }
 
 mongodb_console = function(Argument = NULL, ...) {

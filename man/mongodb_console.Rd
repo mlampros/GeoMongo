@@ -22,13 +22,15 @@ The \emph{ellipsis} (...) parameter could be used for instance to disallow messa
 \examples{
 
 \dontrun{
+
 library(GeoMongo)
 
 ARGs = "mongoimport -d DB -c COLLECTION --type json --file /MY_DATA.json"
 
 mongodb_console(Argument = ARGs)
+
 }
 }
 \references{
-https://docs.mongodb.com/manual/reference/program/mongoimport/,  https://docs.mongodb.com/manual/reference/program/mongoexport/
+https://docs.mongodb.com/manual/reference/program/mongoimport/, https://docs.mongodb.com/manual/reference/program/mongoexport/
 }

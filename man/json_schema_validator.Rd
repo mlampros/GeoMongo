@@ -22,36 +22,38 @@ In case that \emph{type} is at the same time also a property name in the json da
 }
 \examples{
 
-library(GeoMongo)
+try({
+  if (reticulate::py_available(initialize = TRUE)) {
+    if (reticulate::py_module_available("jsonschema")) {
 
-if (reticulate::py_available() && reticulate::py_module_available("jsonschema")) {
+      library(GeoMongo)
 
- schema_dict = list("type" = "object",
+      schema_dict = list("type" = "object",
 
-                      "properties" = list(
+                         "properties" = list(
 
-                        "name" = list("type" = "string"),
+                           "name" = list("type" = "string"),
 
                            "location" = list("type" = "object",
 
-                           "properties" = list(
+                                             "properties" = list(
 
-                            "type" = list("enum" = c("Point", "Polygon")),
+                                               "type" = list("enum" = c("Point", "Polygon")),
 
-                            "coordinates" = list("type" = "array")
- ))))
-
-
- data_dict = list("name" = "example location",
-
-                 "location" = list("type" = "Point", "coordinates" = c(-120.24, 39.21)))
+                                               "coordinates" = list("type" = "array")
+                                             ))))
 
 
- json_schema_validator(json_data = data_dict, json_schema = schema_dict)
+      data_dict = list("name" = "example location",
 
-}
+                       "location" = list("type" = "Point", "coordinates" = c(-120.24, 39.21)))
 
+
+      json_schema_validator(json_data = data_dict, json_schema = schema_dict)
+    }
+  }
+}, silent=TRUE)
 }
 \references{
-https://pypi.python.org/pypi/jsonschema, http://python-jsonschema.readthedocs.io/en/latest/
+https://pypi.org/project/jsonschema/, https://python-jsonschema.readthedocs.io/en/latest/
 }
