@@ -23,7 +23,7 @@ In case that \emph{type} is at the same time also a property name in the json da
 \examples{
 
 try({
-  if (reticulate::py_available(initialize = TRUE)) {
+  if (reticulate::py_available(initialize = FALSE)) {
     if (reticulate::py_module_available("jsonschema")) {
 
       library(GeoMongo)

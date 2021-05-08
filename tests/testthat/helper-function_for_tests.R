@@ -8,19 +8,24 @@ check_availability = function() {
   builtins_av = mongo = bson = schema = NULL
 
   try({
-    builtins_av = reticulate::import_builtins(convert = FALSE)                      # 'buildins' are used in non-ascii languages (see issue https://github.com/mlampros/fuzzywuzzyR/issues/3) where the R-function accepts a python object as input [ convert = FALSE ]
-  }, silent=TRUE)
+    if (reticulate::py_available(initialize = FALSE)) {
 
-  try({
-    mongo = reticulate::import("pymongo", delay_load = TRUE)                     # delay load foo module ( will only be loaded when accessed via $ )
-  }, silent=TRUE)
+      try({
+        builtins_av = reticulate::import_builtins(convert = FALSE)                      # 'buildins' are used in non-ascii languages (see issue https://github.com/mlampros/fuzzywuzzyR/issues/3) where the R-function accepts a python object as input [ convert = FALSE ]
+      }, silent=TRUE)
 
-  try({
-    bson = reticulate::import("bson.json_util", delay_load = TRUE)
-  }, silent=TRUE)
+      try({
+        mongo = reticulate::import("pymongo", delay_load = TRUE)                     # delay load foo module ( will only be loaded when accessed via $ )
+      }, silent=TRUE)
 
-  try({
-    schema = reticulate::import('jsonschema', delay_load = TRUE)
+      try({
+        bson = reticulate::import("bson.json_util", delay_load = TRUE)
+      }, silent=TRUE)
+
+      try({
+        schema = reticulate::import('jsonschema', delay_load = TRUE)
+      }, silent=TRUE)
+    }
   }, silent=TRUE)
 
 

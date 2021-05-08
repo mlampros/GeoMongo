@@ -15,6 +15,8 @@ mongodb geospatial methods ( using PyMongo in R )
 mongodb geospatial methods ( using PyMongo in R )
 }
 \details{
+See the reference link for more details on the \emph{ellipsis} (...) concerning the additional parameters of the MongoClient()
+
 the \emph{geomongo$new} method initializes the MongoClient
 
 the \emph{getClient} method returns a \emph{"pymongo.mongo_client.MongoClient"} object
@@ -129,8 +131,6 @@ https://github.com/mongodb/mongo-python-driver, https://docs.mongodb.com/manual/
 \item{\code{tz_aware}}{(optional) if TRUE, datetime instances returned as values in a document by this MongoClient will be timezone aware (otherwise they will be naive)}
 
 \item{\code{connect}}{(optional) if TRUE (the default), immediately begin connecting to MongoDB in the background. Otherwise connect on the first operation}
-
-\item{\code{...}}{See the reference link for more details on the \emph{ellipsis} (...) concerning the additional parameters of the MongoClient()}
 }
 \if{html}{\out{</div>}}
 }

@@ -477,7 +477,7 @@ geomongo <- R6::R6Class("geomongo",
 #' @examples
 #'
 #' try({
-#'   if (reticulate::py_available(initialize = TRUE)) {
+#'   if (reticulate::py_available(initialize = FALSE)) {
 #'     if (reticulate::py_module_available("jsonschema")) {
 #'
 #'       library(GeoMongo)
