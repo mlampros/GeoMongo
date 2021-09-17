@@ -535,7 +535,7 @@ json_schema_validator = function(json_data = NULL, json_schema = NULL) {
 #' within an R-session. See the reference links for more details.
 #' The \emph{ellipsis} (...) parameter could be used for instance to disallow messages be printed in the console (on unix by using \emph{ignore.stdout} and \emph{ignore.stderr}).
 #' @export
-#' @references https://docs.mongodb.com/manual/reference/program/mongoimport/, https://docs.mongodb.com/manual/reference/program/mongoexport/
+#' @references https://docs.mongodb.com/database-tools/mongoimport/, https://docs.mongodb.com/database-tools/mongoexport/
 #' @examples
 #'
 #' \dontrun{

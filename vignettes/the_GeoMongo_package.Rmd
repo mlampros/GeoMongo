@@ -19,7 +19,7 @@ The GeoMongo package allows the user,
 * to insert and query **only** GeoJson data using the **geomongo** R6 class
 * to read data in either json (through the geojsonR package) or BSON format (I'll explain later when BSON is necessary for inserting data)
 * to validate a json instance using a schema using the **json_schema_validator()** function (input parameters are R named lists)
-* to utilize MongoDB console commands using the **mongodb_console()** function. The *mongodb_console()* function takes advantage of the base R *system()* function. For instance, MongoDB console commands are necessary in case of bulk import / export of data as documented [here](https://docs.mongodb.com/manual/reference/program/mongoimport/) and [here](https://docs.mongodb.com/manual/reference/program/mongoexport/).
+* to utilize MongoDB console commands using the **mongodb_console()** function. The *mongodb_console()* function takes advantage of the base R *system()* function. For instance, MongoDB console commands are necessary in case of bulk import / export of data as documented [here](https://docs.mongodb.com/database-tools/mongoimport/) and [here](https://docs.mongodb.com/database-tools/mongoexport/).
 
 
 <br>

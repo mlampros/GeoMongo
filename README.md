@@ -61,16 +61,16 @@ Use the following link to report bugs/issues,
 
 ### **Citation:**
 
-If you use the **GeoMongo** R package in your paper or research please cite [https://cran.r-project.org/web/packages/GeoMongo/citation.html](https://cran.r-project.org/web/packages/GeoMongo/citation.html):
+If you use the **GeoMongo** R package in your paper or research please cite [https://CRAN.R-project.org/package=GeoMongo](https://CRAN.R-project.org/package=GeoMongo):
 
 <br>
 
 ```R
 @Manual{,
-  title = {{GeoMongo}: Geospatial Queries Using 'PyMongo'},
+  title = {{GeoMongo}: Geospatial Queries Using 'PyMongo' in R},
   author = {Lampros Mouselimis},
   year = {2021},
-  note = {R package version 1.0.2},
+  note = {R package version 1.0.3},
   url = {https://CRAN.R-project.org/package=GeoMongo},
 }
 ```

@@ -32,5 +32,5 @@ mongodb_console(Argument = ARGs)
 }
 }
 \references{
-https://docs.mongodb.com/manual/reference/program/mongoimport/, https://docs.mongodb.com/manual/reference/program/mongoexport/
+https://docs.mongodb.com/database-tools/mongoimport/, https://docs.mongodb.com/database-tools/mongoexport/
 }

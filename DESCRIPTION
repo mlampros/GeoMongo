@@ -1,8 +1,8 @@
 Package: GeoMongo
 Type: Package
 Title: Geospatial Queries Using 'PyMongo'
-Version: 1.0.2
-Date: 2021-05-07
+Version: 1.0.3
+Date: 2021-09-17
 Authors@R: c( person(given = "Lampros", family = "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0002-8024-1546")))
 BugReports: https://github.com/mlampros/GeoMongo/issues
 URL: https://github.com/mlampros/GeoMongo
