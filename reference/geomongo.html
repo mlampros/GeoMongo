@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="mongodb geospatial methods ( using PyMongo in R ) — geomongo" />
-<meta property="og:description" content="mongodb geospatial methods ( using PyMongo in R )" />
+<meta property="og:description" content="mongodb geospatial methods ( using PyMongo in R )
+mongodb geospatial methods ( using PyMongo in R )" />
 
 
 
@@ -72,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">GeoMongo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -130,91 +131,18 @@
 
     <div class="ref-description">
     <p>mongodb geospatial methods ( using PyMongo in R )</p>
+<p>mongodb geospatial methods ( using PyMongo in R )</p>
     </div>
 
     <pre class="usage"><span class='co'># init &lt;- geomongo$new(host = 'localhost', port = 27017,</span>
 
        <span class='co'>#                      tz_aware = FALSE, connect = TRUE, ...)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>host</th>
-      <td><p>(optional) hostname or IP address or Unix domain socket path of a single mongod or mongos instance to connect to, or a mongodb URI, or a list of hostnames / mongodb URIs. See the reference link for more information.</p></td>
-    </tr>
-    <tr>
-      <th>port</th>
-      <td><p>(optional) port number on which to connect</p></td>
-    </tr>
-    <tr>
-      <th>document_class</th>
-      <td><p>(optional) default class to use for documents returned from queries on this client</p></td>
-    </tr>
-    <tr>
-      <th>tz_aware</th>
-      <td><p>(optional) if TRUE, datetime instances returned as values in a document by this MongoClient will be timezone aware (otherwise they will be naive)</p></td>
-    </tr>
-    <tr>
-      <th>connect</th>
-      <td><p>(optional) if TRUE (the default), immediately begin connecting to MongoDB in the background. Otherwise connect on the first operation</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>See the reference link for more details on the <em>ellipsis</em> (...) concerning the additional parameters of the MongoClient()</p></td>
-    </tr>
-    <tr>
-      <th>FILE</th>
-      <td><p>a character string specifying a valid path to a file ( applies to <em>read_mongo_bson</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>STR</th>
-      <td><p>a character string ( applies to <em>read_mongo_bson</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>DATA</th>
-      <td><p>a valid path to a file/folder or a list ( applies to <em>geoInsert</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>TYPE_DATA</th>
-      <td><p>a character string. One of 'folder', 'file', 'dict_one' (takes as input a <em>list</em> or a <em>character string</em>) or 'dict_many' (takes as input a <em>list</em> or a <em>character string vector</em>) ( applies to <em>geoInsert</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>COLLECTION</th>
-      <td><p>a <em>pymongo.collection.Collection</em> object ( applies to <em>geoInsert</em> and <em>geoQuery</em> methods )</p></td>
-    </tr>
-    <tr>
-      <th>GEOMETRY_NAME</th>
-      <td><p>a character string specifying the name of the geometry object, as it appears in the file/string ( applies to <em>geoInsert</em> and <em>geoQuery</em> methods )</p></td>
-    </tr>
-    <tr>
-      <th>read_method</th>
-      <td><p>a character string specifying the method to use to read the data. Either using the <em>"geojsonR"</em> (package) or the <em>"mongo_bson"</em> utility function ( applies to <em>geoInsert</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>QUERY</th>
-      <td><p>a named list specifying the query to use in mongodb ( applies to <em>geoQuery</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>METHOD</th>
-      <td><p>a character string specifying the method to use to perform geospatial queries in mongodb. One of "find", "aggregate" OR "command" ( applies to <em>geoQuery</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>DATABASE</th>
-      <td><p>a <em>"pymongo.database.Database"</em> object ( applies to <em>geoQuery</em> method )</p></td>
-    </tr>
-    <tr>
-      <th>TO_LIST</th>
-      <td><p>either TRUE or FALSE. If TRUE then the output of the <em>geoQuery</em> method will be a list, otherwise a data.table (matrix) object ( applies to <em>geoQuery</em> method )</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>An object of class <code>R6ClassGenerator</code> of length 24.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>the <em>geomongo$new</em> method initializes the MongoClient</p>
+    <p>See the reference link for more details on the <em>ellipsis</em> (...) concerning the additional parameters of the MongoClient()</p>
+<p>the <em>geomongo$new</em> method initializes the MongoClient</p>
 <p>the <em>getClient</em> method returns a <em>"pymongo.mongo_client.MongoClient"</em> object</p>
 <p>the <em>read_mongo_bson</em> method allows the user to read a file/string using the <em>bson.json_util</em> module, which loads MongoDB Extended JSON data ( SEE <em>https://stackoverflow.com/questions/42089045/bson-errors-invaliddocument-key-oid-must-not-start-with-trying-to-insert</em> )</p>
 <p>the <em>geoInsert</em> method allows the user to import data to a mongo-db from a <em>folder</em>, <em>file</em> or <em>list</em></p>
@@ -254,11 +182,132 @@ Valid latitude values are between -90 and 90 (both inclusive).</p>
 
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>https://api.mongodb.com/python/current/api/index.html, https://docs.mongodb.com/manual/tutorial/calculate-distances-using-spherical-geometry-with-2d-geospatial-indexes/</p>
+    <p>https://github.com/mongodb/mongo-python-driver, https://docs.mongodb.com/manual/tutorial/calculate-distances-using-spherical-geometry-with-2d-geospatial-indexes/</p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
+
+    
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
+
+<ul>
+<li><p><a href='#method-new'><code>geomongo$new()</code></a></p></li>
+<li><p><a href='#method-getClient'><code>geomongo$getClient()</code></a></p></li>
+<li><p><a href='#method-read_mongo_bson'><code>geomongo$read_mongo_bson()</code></a></p></li>
+<li><p><a href='#method-geoInsert'><code>geomongo$geoInsert()</code></a></p></li>
+<li><p><a href='#method-geoQuery'><code>geomongo$geoQuery()</code></a></p></li>
+<li><p><a href='#method-clone'><code>geomongo$clone()</code></a></p></li>
+</ul>
+<p><hr>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
+  host <span class='op'>=</span> <span class='st'>"localhost"</span>,
+  port <span class='op'>=</span> <span class='fl'>27017</span>,
+  tz_aware <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  connect <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>host</code></dt><dd><p>(optional) hostname or IP address or Unix domain socket path of a single mongod or mongos instance to connect to, or a mongodb URI, or a list of hostnames / mongodb URIs. See the reference link for more information.</p></dd>
+
+<dt><code>port</code></dt><dd><p>(optional) port number on which to connect</p></dd>
+
+<dt><code>tz_aware</code></dt><dd><p>(optional) if TRUE, datetime instances returned as values in a document by this MongoClient will be timezone aware (otherwise they will be naive)</p></dd>
+
+<dt><code>connect</code></dt><dd><p>(optional) if TRUE (the default), immediately begin connecting to MongoDB in the background. Otherwise connect on the first operation</p></dd>
+
+</dl><p></div></p>
+<p><hr>
+<a id="method-getClient"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>getClient()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>getClient</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-read_mongo_bson"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>read_mongo_bson()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>read_mongo_bson</span><span class='op'>(</span>FILE <span class='op'>=</span> <span class='cn'>NULL</span>, STR <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>FILE</code></dt><dd><p>a character string specifying a valid path to a file ( applies to <em>read_mongo_bson</em> method )</p></dd>
+
+<dt><code>STR</code></dt><dd><p>a character string ( applies to <em>read_mongo_bson</em> method )</p></dd>
+
+</dl><p></div></p>
+<p><hr>
+<a id="method-geoInsert"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>geoInsert()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>geoInsert</span><span class='op'>(</span>
+  DATA <span class='op'>=</span> <span class='cn'>NULL</span>,
+  TYPE_DATA <span class='op'>=</span> <span class='cn'>NULL</span>,
+  COLLECTION <span class='op'>=</span> <span class='cn'>NULL</span>,
+  GEOMETRY_NAME <span class='op'>=</span> <span class='cn'>NULL</span>,
+  read_method <span class='op'>=</span> <span class='st'>"geojsonR"</span>
+<span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>DATA</code></dt><dd><p>a valid path to a file/folder or a list ( applies to <em>geoInsert</em> method )</p></dd>
+
+<dt><code>TYPE_DATA</code></dt><dd><p>a character string. One of 'folder', 'file', 'dict_one' (takes as input a <em>list</em> or a <em>character string</em>) or 'dict_many' (takes as input a <em>list</em> or a <em>character string vector</em>) ( applies to <em>geoInsert</em> method )</p></dd>
+
+<dt><code>COLLECTION</code></dt><dd><p>a <em>pymongo.collection.Collection</em> object ( applies to <em>geoInsert</em> and <em>geoQuery</em> methods )</p></dd>
+
+<dt><code>GEOMETRY_NAME</code></dt><dd><p>a character string specifying the name of the geometry object, as it appears in the file/string ( applies to <em>geoInsert</em> and <em>geoQuery</em> methods )</p></dd>
+
+<dt><code>read_method</code></dt><dd><p>a character string specifying the method to use to read the data. Either using the <em>"geojsonR"</em> (package) or the <em>"mongo_bson"</em> utility function ( applies to <em>geoInsert</em> method )</p></dd>
+
+</dl><p></div></p>
+<p><hr>
+<a id="method-geoQuery"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>geoQuery()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>geoQuery</span><span class='op'>(</span>
+  QUERY <span class='op'>=</span> <span class='cn'>NULL</span>,
+  METHOD <span class='op'>=</span> <span class='cn'>NULL</span>,
+  COLLECTION <span class='op'>=</span> <span class='cn'>NULL</span>,
+  DATABASE <span class='op'>=</span> <span class='cn'>NULL</span>,
+  GEOMETRY_NAME <span class='op'>=</span> <span class='cn'>NULL</span>,
+  TO_LIST <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>QUERY</code></dt><dd><p>a named list specifying the query to use in mongodb ( applies to <em>geoQuery</em> method )</p></dd>
+
+<dt><code>METHOD</code></dt><dd><p>a character string specifying the method to use to perform geospatial queries in mongodb. One of "find", "aggregate" OR "command" ( applies to <em>geoQuery</em> method )</p></dd>
+
+<dt><code>COLLECTION</code></dt><dd><p>a <em>pymongo.collection.Collection</em> object ( applies to <em>geoInsert</em> and <em>geoQuery</em> methods )</p></dd>
+
+<dt><code>DATABASE</code></dt><dd><p>a <em>"pymongo.database.Database"</em> object ( applies to <em>geoQuery</em> method )</p></dd>
+
+<dt><code>GEOMETRY_NAME</code></dt><dd><p>a character string specifying the name of the geometry object, as it appears in the file/string ( applies to <em>geoInsert</em> and <em>geoQuery</em> methods )</p></dd>
+
+<dt><code>TO_LIST</code></dt><dd><p>either TRUE or FALSE. If TRUE then the output of the <em>geoQuery</em> method will be a list, otherwise a data.table (matrix) object ( applies to <em>geoQuery</em> method )</p></dd>
+
+</dl><p></div></p>
+<p><hr>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mlampros/GeoMongo'>GeoMongo</a></span><span class='op'>)</span>
 
 <span class='va'>init</span> <span class='op'>=</span> <span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='op'>)</span>
