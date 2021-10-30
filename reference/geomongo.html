@@ -305,35 +305,35 @@ Valid latitude values are between -90 and 90 (both inclusive).</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mlampros/GeoMongo'>GeoMongo</a></span><span class='op'>)</span>
-
-<span class='va'>init</span> <span class='op'>=</span> <span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='va'>getter_client</span> <span class='op'>=</span> <span class='va'>init</span><span class='op'>$</span><span class='fu'>getClient</span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='va'>init_db</span> <span class='op'>=</span> <span class='va'>getter_client</span><span class='op'>$</span><span class='fu'>get_database</span><span class='op'>(</span><span class='st'>"example_db"</span><span class='op'>)</span>
-
-<span class='va'>init_col</span> <span class='op'>=</span> <span class='va'>init_db</span><span class='op'>$</span><span class='fu'>get_collection</span><span class='op'>(</span><span class='st'>"example_collection"</span><span class='op'>)</span>
-
-<span class='co'>#--------------------------</span>
-<span class='co'># geonear using 'aggregate'</span>
-<span class='co'>#--------------------------</span>
-
-<span class='va'>query_geonear</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>'$geoNear'</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>near <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"Point"</span>, coordinates <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>122.5</span>, <span class='fl'>37.1</span><span class='op'>)</span><span class='op'>)</span>,
-
-                     distanceField <span class='op'>=</span> <span class='st'>"distance"</span>, maxDistance <span class='op'>=</span> <span class='fl'>900</span> <span class='op'>*</span> <span class='fl'>1609.34</span>,
-
-                     distanceMultiplier <span class='op'>=</span> <span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>1609.34</span>, spherical <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
-
-
-<span class='va'>init</span><span class='op'>$</span><span class='fu'>geoQuery</span><span class='op'>(</span>QUERY <span class='op'>=</span> <span class='va'>query_geonear</span>, METHOD <span class='op'>=</span> <span class='st'>"aggregate"</span>, COLLECTION <span class='op'>=</span> <span class='va'>init_col</span>,
-
-              DATABASE <span class='op'>=</span> <span class='va'>init_db</span>, GEOMETRY_NAME <span class='op'>=</span> <span class='st'>"location"</span>, TO_LIST <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mlampros/GeoMongo'>GeoMongo</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>init</span> <span class='op'>=</span> <span class='va'>geomongo</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>getter_client</span> <span class='op'>=</span> <span class='va'>init</span><span class='op'>$</span><span class='fu'>getClient</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>init_db</span> <span class='op'>=</span> <span class='va'>getter_client</span><span class='op'>$</span><span class='fu'>get_database</span><span class='op'>(</span><span class='st'>"example_db"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>init_col</span> <span class='op'>=</span> <span class='va'>init_db</span><span class='op'>$</span><span class='fu'>get_collection</span><span class='op'>(</span><span class='st'>"example_collection"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>#--------------------------</span></span>
+<span class='r-in'><span class='co'># geonear using 'aggregate'</span></span>
+<span class='r-in'><span class='co'>#--------------------------</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>query_geonear</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>'$geoNear'</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>near <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"Point"</span>, coordinates <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>122.5</span>, <span class='fl'>37.1</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span class='r-in'></span>
+<span class='r-in'>                     distanceField <span class='op'>=</span> <span class='st'>"distance"</span>, maxDistance <span class='op'>=</span> <span class='fl'>900</span> <span class='op'>*</span> <span class='fl'>1609.34</span>,</span>
+<span class='r-in'></span>
+<span class='r-in'>                     distanceMultiplier <span class='op'>=</span> <span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>1609.34</span>, spherical <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>init</span><span class='op'>$</span><span class='fu'>geoQuery</span><span class='op'>(</span>QUERY <span class='op'>=</span> <span class='va'>query_geonear</span>, METHOD <span class='op'>=</span> <span class='st'>"aggregate"</span>, COLLECTION <span class='op'>=</span> <span class='va'>init_col</span>,</span>
+<span class='r-in'></span>
+<span class='r-in'>              DATABASE <span class='op'>=</span> <span class='va'>init_db</span>, GEOMETRY_NAME <span class='op'>=</span> <span class='st'>"location"</span>, TO_LIST <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
